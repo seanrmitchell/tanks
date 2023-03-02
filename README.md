@@ -1,2 +1,2 @@
-# tanks
+# Tanks
 *VERY ORIGINAL* Tank Game!!

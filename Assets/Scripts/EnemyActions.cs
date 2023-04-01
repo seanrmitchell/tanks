@@ -23,9 +23,10 @@ public class EnemyActions : MonoBehaviour
 
     private void Update()
     {
-
+        // Distance from player
         float distance = Vector3.Distance(target.position, transform.position);
 
+        // If player is within range, and shot is not on cooldown, a shot is fired.
         if (distance <= shellRadius && attackSpeed >= attackCoolDown)
         {
             gameObject.GetComponent<ShellAttack>().Shell();

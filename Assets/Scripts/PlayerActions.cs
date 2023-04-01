@@ -7,9 +7,17 @@ public class PlayerActions : MonoBehaviour
 
     public Controls playerControls;
 
+    [SerializeField]
+    private int maxOfShots;
+
     private void Awake()
     {
         playerControls = new Controls();
+    }
+
+    private void Start()
+    {
+        
     }
 
     private void OnEnable()
@@ -26,7 +34,12 @@ public class PlayerActions : MonoBehaviour
     void Update()
     {
         //Calls class ShellAttack and performs hit
-        playerControls.Player_Map.Shell.performed += _ => gameObject.GetComponent<ShellAttack>().Shell();
+        playerControls.Player_Map.Shell.performed += _ =>
+        {
+            if (gameObject.GetComponent<ShellAttack>().shots.Count < maxOfShots)
+                gameObject.GetComponent<ShellAttack>().Shell();
+        };
         //playerControls.Attack.Secondary.performed += _ => Secondary();
     }
+
 }
